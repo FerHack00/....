@@ -1,8 +1,4 @@
-#!/bin/bash
-# UserRecon v1.0
-# Author: @linux_choice
-# https://github.com/thelinuxchoice/userrecon
-# Give me the credits if you use any part of this code, read the License.
+
 
 trap 'printf "\n";partial;exit 1' 2
 
@@ -17,7 +13,7 @@ printf "\e[1;77m ##################FERNANDO CASTILLO################ \e[0m\e[1;9
 printf "\e[1;77m ###################################################\e[0m\e[1;92m \e[0m\n"
 printf "\e[1;77m ##################MOMOS TIME-HACKUSER##############\e[0m\e[1;92m\e[0m\n"
 printf "\e[1;77m ################################################### \e[0m\e[1;92m\        / \e[0m\n"
-printf "                   \e[1;92mv1.0, Author: @linux_choice  \e[0m   \e[1;92m\  __  / \e[0m\n"
+printf "                   \e[1;92mv1.0,  \e[0m   \e[1;92m\  __  / \e[0m\n"
 printf "                                                    \e[1;92m'.__.' \e[0m\n"
                                                 
 
@@ -35,14 +31,14 @@ fi
 
 scanner() {
 
-read -p $'\e[1;92m[\e[0m\e[1;77m?\e[0m\e[1;92m] Input Username:\e[0m ' username
+read -p $'\e[1;92m[\e[0m\e[1;77m?\e[0m\e[1;92m] Escribe el nombre/username:\e[0m ' username
 
 if [[ -e $username.txt ]]; then
 printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Removing previous file:\e[0m\e[1;77m %s.txt" $username
 rm -rf $username.txt
 fi
 printf "\n"
-printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Checking username\e[0m\e[1;77m %s\e[0m\e[1;92m on: \e[0m\n" $username
+printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Revizando...\e[0m\e[1;77m %s\e[0m\e[1;92m on: \e[0m\n" $username
 
 ## INSTAGRAM
 
@@ -50,10 +46,10 @@ check_insta=$(curl -s -H "Accept-Language: en" "https://www.instagram.com/$usern
 printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Instagram: \e[0m"
 
 if [[ $check_insta == *'1'* ]]; then
-printf "\e[1;92m Found!\e[0m https://www.instagram.com/%s\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://www.instagram.com/%s\n" $username
 printf "https://www.instagram.com/%s\n" $username > $username.txt
 elif [[ $check_insta == *'0'* ]]; then
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTENTE!\e[0m\n"
 fi
 
 ## Facebook
@@ -63,10 +59,10 @@ check_face=$(curl -s "https://www.facebook.com/$username" -L -H "Accept-Language
 
 
 if [[ $check_face == *'1'* ]]; then
-printf "\e[1;92m Found!\e[0m https://www.facebook.com/%s\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://www.facebook.com/%s\n" $username
 printf "https://www.facebook.com/%s\n" $username >> $username.txt
 elif [[ $check_face == *'0'* ]]; then
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTENTE!\e[0m\n"
 fi
 
 ## TWITTER 
@@ -76,10 +72,10 @@ check_twitter=$(curl -s "https://www.twitter.com/$username" -L -H "Accept-Langua
 
 
 if [[ $check_twitter == *'1'* ]]; then
-printf "\e[1;92m Found!\e[0m https://www.twitter.com/%s\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://www.twitter.com/%s\n" $username
 printf "https://www.twitter.com/%s\n" $username >> $username.txt
 elif [[ $check_twitter == *'0'* ]]; then
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTENTE!\e[0m\n"
 fi
 
 ## YOUTUBE
@@ -89,10 +85,10 @@ check_youtube=$(curl -s "https://www.youtube.com/$username" -L -H "Accept-Langua
 
 
 if [[ $check_youtube == *'1'* ]]; then
-printf "\e[1;92m Found!\e[0m https://www.youtube.com/%s\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://www.youtube.com/%s\n" $username
 printf "https://www.youtube.com/%s\n" $username >> $username.txt
 elif [[ $check_youtube == *'0'* ]]; then
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTE!\e[0m\n"
 fi
 
 ## BLOGGER
@@ -102,10 +98,10 @@ check=$(curl -s "https://$username.blogspot.com" -L -H "Accept-Language: en" -i 
 
 
 if [[ $check == *'1'* ]]; then
-printf "\e[1;92m Found!\e[0m https://%s.blogspot.com\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://%s.blogspot.com\n" $username
 printf "https://%s.blogspot.com\n" $username >> $username.txt
 elif [[ $check == *'0'* ]]; then
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTENTE!\e[0m\n"
 fi
 
 ## GLOOGLE PLUS
@@ -115,10 +111,10 @@ check=$(curl -s "https://plus.google.com/+$username/posts" -L -H "Accept-Languag
 
 
 if [[ $check == *'1'* ]]; then
-printf "\e[1;92m Found!\e[0m https://plus.google.com/+%s/posts\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://plus.google.com/+%s/posts\n" $username
 printf "https://plus.google.com/+%s/posts\n" $username >> $username
 elif [[ $check == *'0'* ]]; then
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTENTE!\e[0m\n"
 fi
 
 ## REDDIT
@@ -127,10 +123,10 @@ printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Reddit: \e[0m"
 check1=$(curl -s -i "https://www.reddit.com/user/$username" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | head -n1 | grep -o 'HTTP/2 404' ; echo $?)
 
 if [[ $check1 == *'0'* ]] ; then 
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNot ENCONTRADO!\e[0m\n"
 elif [[ $check1 == *'1'* ]]; then 
 
-printf "\e[1;92m Found!\e[0m https://www.reddit.com/user/%s\n" $username
+printf "\e[1;92m NO EXISTENTE!\e[0m https://www.reddit.com/user/%s\n" $username
 printf "https://www.reddit.com/user/%s\n" $username >> $username.txt
 fi
 
@@ -140,10 +136,10 @@ printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Wordpress: \e[0m"
 check1=$(curl -s -i "https://$username.wordpress.com" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o 'Do you want to register' ; echo $?)
 
 if [[ $check1 == *'0'* ]] ; then 
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTENTE!\e[0m\n"
 elif [[ $check1 == *'1'* ]]; then 
 
-printf "\e[1;92m Found!\e[0m https://%s.wordpress.com\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://%s.wordpress.com\n" $username
 printf "https://%s.wordpress.com\n" $username >> $username.txt
 fi
 
@@ -153,10 +149,10 @@ printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Pinterest: \e[0m"
 check1=$(curl -s -i "https://www.pinterest.com/$username" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o '?show_error' ; echo $?)
 
 if [[ $check1 == *'0'* ]] ; then 
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTENTE!\e[0m\n"
 elif [[ $check1 == *'1'* ]]; then 
 
-printf "\e[1;92m Found!\e[0m https://www.pinterest.com/%s\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://www.pinterest.com/%s\n" $username
 printf "https://www.pinterest.com/%s\n" $username >> $username.txt
 fi
 
@@ -166,10 +162,10 @@ printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Github: \e[0m"
 check1=$(curl -s -i "https://www.github.com/$username" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o '404 Not Found' ; echo $?)
 
 if [[ $check1 == *'0'* ]] ; then 
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO ENCONTRADO!\e[0m\n"
 elif [[ $check1 == *'1'* ]]; then 
 
-printf "\e[1;92m Found!\e[0m https://www.github.com/%s\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://www.github.com/%s\n" $username
 printf "https://www.github.com/%s\n" $username >> $username.txt
 fi
 
@@ -179,10 +175,10 @@ printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Tumblr: \e[0m"
 check1=$(curl -s -i "https://$username.tumblr.com" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o 'HTTP/2 404' ; echo $?)
 
 if [[ $check1 == *'0'* ]] ; then 
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTENTE!\e[0m\n"
 elif [[ $check1 == *'1'* ]]; then 
 
-printf "\e[1;92m Found!\e[0m https://%s.tumblr.com\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://%s.tumblr.com\n" $username
 printf "https://%s.tumblr.com\n" $username >> $username.txt
 fi
 
@@ -192,10 +188,10 @@ printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Flickr: \e[0m"
 check1=$(curl -s -i "https://www.flickr.com/people/$username" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o 'Not Found' ; echo $?)
 
 if [[ $check1 == *'0'* ]] ; then 
-printf "\e[1;93mNot Found!\e[0m\n"
+printf "\e[1;93mNO EXISTENTE!\e[0m\n"
 elif [[ $check1 == *'1'* ]]; then 
 
-printf "\e[1;92m Found!\e[0m https://www.flickr.com/photos/%s\n" $username
+printf "\e[1;92m ENCONTRADO!\e[0m https://www.flickr.com/photos/%s\n" $username
 printf "https://www.flickr.com/photos/%s\n" $username >> $username.txt
 fi
 
