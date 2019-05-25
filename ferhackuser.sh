@@ -126,7 +126,7 @@ if [[ $check1 == *'0'* ]] ; then
 printf "\e[1;93mNot ENCONTRADO!\e[0m\n"
 elif [[ $check1 == *'1'* ]]; then 
 
-printf "\e[1;92m NO EXISTENTE!\e[0m https://www.reddit.com/user/%s\n" $username
+printf "\e[1;92m  EXISTENTE!\e[0m https://www.reddit.com/user/%s\n" $username
 printf "https://www.reddit.com/user/%s\n" $username >> $username.txt
 fi
 
